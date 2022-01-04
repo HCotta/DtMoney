@@ -18,15 +18,15 @@ createServer({
           amount: 2300.40,
           type: 'deposit',
           category: 'Mercado',
-          createdAt: new Date('2021-02-12 09:00:00'),
+          createdAt: new Date(),
         },
         {
           id: 2,
           title: 'Teste 2',
-          amount: 12300.40,
+          amount: 1200.40,
           type: 'withdraw',
           category: 'Mercado',
-          createdAt: new Date('2021-02-12 12:00:00'),
+          createdAt: new Date(),
         },
         {
           id: 3,
@@ -34,7 +34,7 @@ createServer({
           amount: 2300.40,
           type: 'deposit',
           category: 'Mercado',
-          createdAt: new Date('2021-02-12 15:00:00'),
+          createdAt: new Date(),
         }
       ]
     })
@@ -48,7 +48,7 @@ createServer({
 
     this.post('/transactions', (schema, request) => {
       const data = JSON.parse(request.requestBody);
-
+      console.log(data);
       return schema.create('transaction', data);
     });
 
@@ -57,6 +57,7 @@ createServer({
 
 ReactDOM.render(
   <React.StrictMode>
+
     <App />
   </React.StrictMode>,
   document.getElementById('root')
