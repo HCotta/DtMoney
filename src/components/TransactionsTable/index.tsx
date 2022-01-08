@@ -1,10 +1,16 @@
 import { Container } from './styles'
 import { useTransactions } from '../../hooks/useTransactions';
+import { formatPrice } from '../../util/format';
+import closeImg from '../../assets/close.svg';
 
 
 
 export function TransactionsTable() {
-  const { transactions } = useTransactions();
+  const { transactions, removeTransaction } = useTransactions();
+
+  function handleRemoveTransaction(id: number) {
+    removeTransaction(id);
+  }
 
   return (
     <Container>
@@ -18,14 +24,11 @@ export function TransactionsTable() {
           </tr>
         </thead>
         <tbody>
-          {transactions.map(transaction => (
+          {transactions.length ? transactions.map(transaction => (
             <tr key={transaction.id}>
               <td>{transaction.title}</td>
               <td className={transaction.type}>
-                {new Intl.NumberFormat('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL'
-                }).format(transaction.amount)}
+                {formatPrice(transaction.amount)}
               </td>
               <td>{transaction.category}</td>
               <td>
@@ -33,8 +36,20 @@ export function TransactionsTable() {
                   new Date(transaction.createdAt)
                 )}
               </td>
+              <td>
+                <button type="button" onClick={() => handleRemoveTransaction(transaction.id)}>
+                  <img src={closeImg} alt='Fechar modal' />
+                </button>
+              </td>
             </tr>
-          ))}
+          ))
+            :
+            <tr>
+              <td colSpan={10} align="center">
+                Nenhum registro cadastrado
+              </td>
+            </tr>
+          }
         </tbody>
       </table>
     </Container>

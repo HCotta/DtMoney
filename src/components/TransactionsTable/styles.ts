@@ -34,6 +34,19 @@ export const Container = styled.div`
         color: var(--green);
         
       }
+
+      button {
+        border: 0;
+        background-color: transparent;
+        float: right;
+        position: relative;
+        top: 0.25rem;
+        transition: filter 0.2s;
+
+        &:hover {
+          filter: brightness(0.5);
+        }
+      }
     }
   }
 `;
