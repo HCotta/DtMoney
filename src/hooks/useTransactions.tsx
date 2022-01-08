@@ -46,23 +46,23 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
           title: 'Salário',
           amount: 5800.30,
           type: 'deposit',
-          category: 'Mercado',
+          category: 'Trabalho',
           createdAt: new Date().toDateString(),
         },
         {
           id: 2,
-          title: 'Teste 2',
+          title: 'Viagem para JAPAN',
           amount: 1200.40,
           type: 'withdraw',
-          category: 'Mercado',
+          category: 'Viagens',
           createdAt: new Date().toDateString(),
         },
         {
           id: 3,
-          title: 'Teste 3',
+          title: 'Desenvolvimente de jogo',
           amount: 2300.40,
           type: 'deposit',
-          category: 'Mercado',
+          category: 'Trabalho',
           createdAt: new Date().toDateString(),
         }
       ]));
