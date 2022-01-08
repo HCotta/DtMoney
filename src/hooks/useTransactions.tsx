@@ -39,7 +39,33 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
 
   useEffect(() => {
     api.get('/transactions')
-      .then(response => setTransactions(response.data.transactions));
+      .then(response => setTransactions(response.data.transactions))
+      .catch(() => setTransactions([
+        {
+          id: 1,
+          title: 'Salário',
+          amount: 5800.30,
+          type: 'deposit',
+          category: 'Mercado',
+          createdAt: new Date().toDateString(),
+        },
+        {
+          id: 2,
+          title: 'Teste 2',
+          amount: 1200.40,
+          type: 'withdraw',
+          category: 'Mercado',
+          createdAt: new Date().toDateString(),
+        },
+        {
+          id: 3,
+          title: 'Teste 3',
+          amount: 2300.40,
+          type: 'deposit',
+          category: 'Mercado',
+          createdAt: new Date().toDateString(),
+        }
+      ]));
   }, []);
 
   async function createTransaction(transactionInput: TransactionInput) {

@@ -42,15 +42,15 @@ createServer({
   routes() {
     this.namespace = '/api/';
 
-    this.get('/transactions', () => {
-      return this.schema.all('transaction')
-    });
+    // this.get('/transactions', () => {
+    //   return this.schema.all('transaction')
+    // });
 
-    this.post('/transactions', (schema, request) => {
-      const data = JSON.parse(request.requestBody);
-      console.log(data);
-      return schema.create('transaction', data);
-    });
+    // this.post('/transactions', (schema, request) => {
+    //   const data = JSON.parse(request.requestBody);
+    //   console.log(data);
+    //   return schema.create('transaction', data);
+    // });
 
   }
 })
