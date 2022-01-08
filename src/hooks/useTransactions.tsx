@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect } from 'react';
 import { api } from '../services/api';
 import usePersistedState from '../util/usePersistedState';
 interface Transaction {
@@ -41,7 +41,7 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
   useEffect(() => {
     api.get('/transactions')
       .then(response => setTransactions(response.data.transactions))
-  }, []);
+  });
 
   async function createTransaction(transactionInput: TransactionInput) {
     try {

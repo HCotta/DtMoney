@@ -46,7 +46,7 @@ export function TransactionsTable() {
             :
             <tr>
               <td colSpan={10} align="center">
-                Nenhum registro cadastrado
+                Nenhuma despesa cadastrado
               </td>
             </tr>
           }
