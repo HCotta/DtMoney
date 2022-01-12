@@ -17,7 +17,7 @@ export function TransactionsTable() {
       <table>
         <thead>
           <tr>
-            <th>Titulo</th>
+            <th>Título</th>
             <th>Valor</th>
             <th>Categoria</th>
             <th>Data</th>
@@ -26,7 +26,7 @@ export function TransactionsTable() {
         <tbody>
           {transactions.length ? transactions.map(transaction => (
             <tr key={transaction.id}>
-              <td data-title="Titulo:">{transaction.title}</td>
+              <td data-title="Título:">{transaction.title}</td>
               <td data-title="Valor:" className={transaction.type}>
                 {formatPrice(transaction.amount)}
               </td>
@@ -46,7 +46,7 @@ export function TransactionsTable() {
             :
             <tr>
               <td colSpan={10} align="center">
-                Nenhuma despesa cadastrado
+                Nenhuma despesa cadastrada
               </td>
             </tr>
           }
