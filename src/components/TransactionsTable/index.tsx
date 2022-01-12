@@ -26,12 +26,12 @@ export function TransactionsTable() {
         <tbody>
           {transactions.length ? transactions.map(transaction => (
             <tr key={transaction.id}>
-              <td>{transaction.title}</td>
-              <td className={transaction.type}>
+              <td data-title="Titulo:">{transaction.title}</td>
+              <td data-title="Valor:" className={transaction.type}>
                 {formatPrice(transaction.amount)}
               </td>
-              <td>{transaction.category}</td>
-              <td>
+              <td data-title="Categoria:">{transaction.category}</td>
+              <td data-title="Data:">
                 {new Intl.DateTimeFormat('pt-BR').format(
                   new Date(transaction.createdAt)
                 )}
